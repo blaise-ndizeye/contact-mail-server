@@ -1,21 +1,12 @@
-require("dotenv").config()
+const router = require("express").Router()
 
-const http = require("http")
-const express = require("express")
-const cors = require("cors")
+const mailTransporter = require("../gates/email")
 
-const mailTransporter = require("./gates/email")
-
-const app = express()
-
-app.use(cors())
-app.use(express.json())
-
-app.get("/", (req, res) => {
+router.get("/", (req, res) => {
   res.send("Welcome to Contact Mail Server")
 })
 
-app.post("/send-mail", async (req, res) => {
+router.post("/send-mail", async (req, res) => {
   try {
     const {
       to = [],
@@ -52,10 +43,4 @@ app.post("/send-mail", async (req, res) => {
       message: `Internal Server Error: ${err.message}`,
     })
   }
-})
-
-let PORT = process.env.PORT || 5000
-
-http.createServer(app).listen(PORT, () => {
-  console.log("Contact Mail Server started Successfully...")
 })
