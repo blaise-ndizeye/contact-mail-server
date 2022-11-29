@@ -44,3 +44,5 @@ router.post("/send-mail", async (req, res) => {
     })
   }
 })
+
+module.exports = router
