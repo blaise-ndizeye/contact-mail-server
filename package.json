@@ -4,8 +4,8 @@
   "description": "A reusable server for sending emails to different users from different clients usually to save time and it uses nodemailer",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "author": "Blaise NDIZEYE",
   "license": "ISC",
